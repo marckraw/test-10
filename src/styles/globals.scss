@@ -1,0 +1,88 @@
+@use 'node_modules/@ef-global/backpack/lib/scss/settings/mixins/breakpoints' as breakpoints;
+
+@keyframes backpackSmoke {
+  0% {
+    background-color: var(--status-overlay-accent-color);
+    opacity: 0;
+  }
+
+  100% {
+    background-color: var(--status-overlay-accent-color);
+    opacity: 0.5
+  }
+}
+
+:root {
+  --mobile-breakpoint-accent: #50B0AF;
+  --tablet-breakpoint-accent: #DB7E3B;
+  --desktop-breakpoint--accent: #565ABD;
+
+  --breakpoint-accent-s: var(--mobile-breakpoint-accent);
+  --breakpoint-accent-m: var(--tablet-breakpoint-accent);
+  --breakpoint-accent-l: var(--desktop-breakpoint--accent);
+  --breakpoint-accent-xl: var(--desktop-breakpoint--accent);
+  --breakpoint-accent-xxl: var(--desktop-breakpoint--accent);
+
+  --status-overlay-accent-color: var(--breakpoint-accent-s);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  .overwrite-status-overlay {
+    .storyblok--outlined {
+      background-color: red;
+    }
+
+    .storyblok__hint {
+      outline: var(--status-overlay-accent-color);
+    }
+
+    .storyblok__overlay {
+      outline: 1px solid var(--status-overlay-accent-color);
+
+      &.storyblok__overlay--clicked {
+        animation-name: backpackSmoke;
+      }
+
+      .storyblok__breadcrumbs-menu {
+        .storyblok__breadcrumbs-menu__menu-item.storyblok__breadcrumbs-menu__menu-item--selected {
+          color: var(--status-overlay-accent-color)
+        }
+      }
+
+      .storyblok__overlay-menu {
+        background-color: var(--status-overlay-accent-color);
+
+        &-btn {
+          &:hover {
+            background-color: var(--status-overlay-accent-color);
+            filter: brightness(0.9);
+          }
+        }
+      }
+    }
+
+    @include breakpoints.breakpoint(s) {
+      --status-overlay-accent-color: var(--breakpoint-accent-s)
+    }
+
+    @include breakpoints.breakpoint(m) {
+      --status-overlay-accent-color: var(--breakpoint-accent-m)
+    }
+
+    @include breakpoints.breakpoint(l) {
+      --status-overlay-accent-color: var(--breakpoint-accent-l)
+    }
+
+    @include breakpoints.breakpoint(xl) {
+      --status-overlay-accent-color: var(--breakpoint-accent-xl)
+    }
+
+    @include breakpoints.breakpoint(xxl) {
+      --status-overlay-accent-color: var(--breakpoint-accent-xxl)
+    }
+  }
+}

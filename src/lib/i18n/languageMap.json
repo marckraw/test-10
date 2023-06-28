@@ -1,0 +1,9 @@
+{
+  "en": {
+    "label": "(Master) English"
+  },
+  "en-us": {
+    "label": "English (US)",
+    "fallback_lang": "en"
+  }
+}

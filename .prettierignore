@@ -1,0 +1,6 @@
+# Build files
+src/lib
+storybook-static
+src/typings
+src/logos
+src/icons

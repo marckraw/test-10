@@ -1,0 +1,87 @@
+@use '../../../node_modules/@ef-global/backpack/lib/scss/settings/mixins/breakpoints';
+
+.statusOverlayContainer {
+  --btn-link-color: var(--status-overlay-accent-color);
+}
+
+.statusOverlay {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  opacity: 1;
+  padding: 6px 8px 6px 16px;
+  margin: 12px 64px;
+  overflow: hidden;
+  display: flex;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-shadow-dark-l-10);
+  align-items: center;
+  font-family: var(--latin-extended-stack);
+  transition: all var(--motion-sys-duration-long) var(--motion-sys-easing-standard);
+}
+
+.bpText {
+  margin-right: 16px;
+  white-space: nowrap;
+}
+
+.helpGrid {
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.helpGridInner {
+  height: 100%;
+}
+
+.helperItem {
+  background-color: rgba(255, 96, 80, 0.5);
+  grid-row: 1 / -1;
+
+  @media (max-width: 1023px) {
+    display: none;
+    &:nth-child(2), &:nth-child(5), &:nth-child(9), &:nth-child(12) {
+      display: block;
+    }
+  }
+}
+
+.helperEdge {
+  background-color: #E5F8FF;
+  grid-row: 1 / -1;
+}
+
+.colorBar {
+  z-index: 100;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: var(--status-overlay-accent-color);
+  height: 4px;
+  width: 100%;
+}
+
+.toggleIcon {
+  --btn-primary-bg: var(--status-overlay-accent-color);
+
+  z-index: 100;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.breakpointIcon {
+  display: flex;
+  align-items: center;
+  padding: 6px 6px 6px 0;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
